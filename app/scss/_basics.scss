@@ -1,0 +1,25 @@
+:root {
+  font-size: 16px;
+  line-height: 22px;
+  --base-margin: 22px;
+  --grid-size-minus: calc(var(--base-margin) - 1px);
+  --grid-size: var(--base-margin);
+}
+
+/* Basic page styles – Does not belong to Basegrid */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 5.6rem;
+}
