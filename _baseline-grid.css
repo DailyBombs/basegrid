@@ -1,0 +1,82 @@
+:root {
+  font-size: 16px;
+  line-height: 22px;
+  --base-margin: 22px;
+  --grid-size-minus: calc(var(--base-margin) - 1px);
+  --grid-size: var(--base-margin);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 5.6rem;
+}
+
+.grid-overlay--hidden {
+  display: none !important;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+}
+
+.grid {
+  position: relative;
+  margin-top: -1px;
+}
+
+.grid:before, .grid:after {
+  content: "";
+  position: absolute;
+  width: 100vw;
+}
+
+.grid:after {
+  top: 0;
+  z-index: 20000;
+  opacity: 0.4;
+  height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 1) var(--grid-size-minus), transparent var(--grid-size-minus)) 0 calc(var(--grid-size-minus) * -1), linear-gradient(rgba(0, 0, 255, 1) var(--grid-size-minus), transparent var(--grid-size-minus));
+  background-size: 1px var(--grid-size), 1px var(--grid-size);
+}
+
+.grid:before {
+  top: calc(var(--base-margin) / 2);
+  z-index: 30000;
+  opacity: 0.2;
+  height: calc(100vh - (var(--base-margin) / 2));
+  background: linear-gradient(rgba(255, 255, 255, 1) var(--grid-size-minus), transparent var(--grid-size-minus)) 0 calc(var(--grid-size-minus) * -1), linear-gradient(rgba(255, 0, 0, 1) var(--grid-size-minus), transparent var(--grid-size-minus));
+  background-size: 1px var(--grid-size), 1px var(--grid-size);
+}
+
+.grid--hidden:after, .grid--hidden:after:before {
+  display: none;
+}
+
+/* .toggle-grid {
+  background-color: lightgray;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: black;
+  padding: 20px 40px;
+  z-index: 50000;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+} */
